@@ -1,0 +1,23 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const res = await fetch(`https://fakestoreapi.com/products`);
+const products = await res.json()
+// console.log(products)
+---
+<Layout title="Products">
+  <main>
+    <section>
+      {products.map(product => {
+        return(
+          <article>
+            <h2>{product.title}</h2>
+            <h3>{product.price}</h3>
+            <a href={`/products/${product.id}`}>
+              Read more
+            </a>
+          </article>
+        )
+      })}
+    </section>
+  </main>
+</Layout>

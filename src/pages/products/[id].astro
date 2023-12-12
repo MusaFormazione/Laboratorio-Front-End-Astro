@@ -1,0 +1,43 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+export const prerender = false;
+
+const {id} = Astro.params;
+const res = await fetch(`https://fakestoreapi.com/products/${id}`);
+const product = await res.json();
+
+//SSR - renderizza una pagina a ogni richiesta
+
+// SSG - renderizza una pagina per ogni prodotto a BUILD TIME!
+// export async function getStaticPaths() {
+//   const res = await fetch(`https://fakestoreapi.com/products`);
+//   const products = await res.json();
+//   return products.map(product => {
+//         return{
+//           params: {id: product.id},
+//           props: {product}
+//         }
+//   })
+// }
+
+// const {id} = Astro.params;
+// const {product} = Astro.props;
+console.log(product)
+---
+
+<Layout title='product details'>
+  <div>
+    <h2>{product.title}</h2>
+    <h3>{product.price}</h3>
+    <p>{product.description}</p>
+    <img src={product.image} alt="image description"/>
+  </div>
+</Layout>
+
+<style>
+  img {
+    max-width: 400px;
+    max-height: 250px;
+  }
+</style>

@@ -1,0 +1,15 @@
+---
+import Menu from "./Menu";
+const {pathname}= Astro.url;
+---
+
+<header>
+  <h1>My website</h1>
+  <Menu client:load path={pathname}/>
+</header>
+
+<style is:inline>
+  ul {
+    list-style: none;
+  }
+</style>

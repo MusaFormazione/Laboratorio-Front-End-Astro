@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+import img1 from '../images/1.jpg';
+import img2 from '../images/2.jpg';
+import img3 from '../images/3.jpg';
+import img4 from '../images/4.jpg';
+import img5 from '../images/5.jpg';
+import img6 from '../images/6.jpg';
+---
+<Layout title="Welcome to Astro.">
+  <section>
+    <!-- <Image src={img1} alt="image description" width=500 /> -->
+    <!-- <Image 
+      src={img1}
+      alt="image description"
+      width=500
+      densities={[1.5,2]}
+    /> -->
+    <Image 
+      src={img1}
+      alt="image description"
+      widths={[250,500,1000,1500,img1.width]}
+    />
+    <Image 
+      src={img2}
+      alt="image description"
+      widths={[250,500,1000,1500,img1.width]}
+    />
+    <Image 
+      src={img3}
+      alt="image description"
+      widths={[250,500,1000,1500,img1.width]}
+    />
+    <Image 
+      src={img4}
+      alt="image description"
+      widths={[250,500,1000,1500,img1.width]}
+    />
+    <Image 
+      src={img5}
+      alt="image description"
+      widths={[250,500,1000,1500,img1.width]}
+    />
+    <Image 
+      src={img6}
+      alt="image description"
+      widths={[250,500,1000,1500,img1.width]}
+    />
+  </section>
+</Layout>
+
+<style>
+  img {
+    width: 100%;
+    height: auto;
+    margin: 150px 0;
+  }
+</style>
