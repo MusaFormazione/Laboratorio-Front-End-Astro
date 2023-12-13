@@ -20,6 +20,15 @@ export default function Menu({path}) {
           About
         </a>
       </li>
+      <li>
+        <a href="/products" class={(path === '/products') && styles.active}>Products</a>
+      </li>
+      <li>
+        <a href="/blog" class={(path === '/blog') && styles.active}>Blog</a>
+      </li>
+      <li>
+        <a href="/images" class={(path === '/images') && styles.active}>Images</a>
+      </li>
       {!isLogged ? (
       <li>
         <button onClick={() => handleLogin(true)}>

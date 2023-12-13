@@ -1,13 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-export const prerender = false;
 
+//SSR - renderizza una pagina a ogni richiesta
+// Siccome ho impostato output: 'hybrid' in astro.config, devo disabilitare il prerendering
+export const prerender = false;
 const {id} = Astro.params;
 const res = await fetch(`https://fakestoreapi.com/products/${id}`);
 const product = await res.json();
-
-//SSR - renderizza una pagina a ogni richiesta
 
 // SSG - renderizza una pagina per ogni prodotto a BUILD TIME!
 // export async function getStaticPaths() {

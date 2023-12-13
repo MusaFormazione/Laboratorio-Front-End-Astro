@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import {getCollection} from 'astro:content';
+const blogPosts = await getCollection('blog');
+---
+
+<Layout title="Products">
+  <main>
+    <section>
+      {blogPosts.map(post => {
+        return(
+          <article>
+            <h3>{post.data.title}</h3>
+            <p>{post.data.category}</p>
+            <a href=`/blog/${post.slug}`>Read more</a>
+          </article>
+        )
+      })}
+    </section>
+  </main>
+</Layout>
+
+<style>
+  article {
+    background-color: lightgray;
+    padding: 1rem;
+    margin: 1rem;
+  }
+</style>
